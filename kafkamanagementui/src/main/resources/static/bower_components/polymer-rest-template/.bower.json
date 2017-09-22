@@ -1,0 +1,24 @@
+{
+  "name": "polymer-rest-template",
+  "description": "Retrieve JSON from REST API and apply it to template",
+  "main": "polymer-rest-template.html",
+  "dependencies": {
+    "mustache": "2.x",
+    "polymer": "1.x",
+    "handlebars": "4.0.x",
+    "handlebars-helpers": "2.0.x",
+    "fetch": "1.0.x"
+  },
+  "homepage": "https://github.com/phanect/polymer-rest-template",
+  "version": "0.0.3",
+  "_release": "0.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.3",
+    "commit": "56c0270ce374989f5f5652b0a68a74b01996dd32"
+  },
+  "_source": "https://github.com/phanect/polymer-rest-template.git",
+  "_target": "^0.0.3",
+  "_originalSource": "polymer-rest-template",
+  "_direct": true
+}

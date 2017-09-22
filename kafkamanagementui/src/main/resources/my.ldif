@@ -1,0 +1,20 @@
+dn: dc=smartcompute,dc=online
+dc: smartcompute
+objectClass: dcObject
+objectClass: organization
+o: smartcompute, Inc.
+
+dn: ou=people, dc=smartcompute,dc=online
+ou: USER
+description: All people in smartcompute
+objectclass: organizationalunit
+
+dn: cn=Masud Hasan,ou=people,dc=smartcompute,dc=online
+objectclass: inetOrgPerson
+cn: Masud Hasan
+uid: masud
+userpassword: masud123
+ou: USER
+
+
+

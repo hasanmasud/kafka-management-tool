@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+<link rel="imort" href="bower_components/polymer/polymer.html" />
+<link rel="import" href="elements/login-form.html" />
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css" />
+</head>
+<body>
+	<div id="errors"
+		th:if="${(param.error != null) and (param.error[0] == 'true')}">
+		<login-form action="/login" method="POST"
+			errormessage="invalid username and password"></login-form>
+	</div>
+	<div id="errors"
+		th:unless="${(param.error != null) and (param.error[0] == 'true')}">
+		<login-form action="/login" method="POST"></login-form>
+	</div>
+</body>
+</html>

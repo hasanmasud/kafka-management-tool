@@ -1,0 +1,66 @@
+<link rel="import"
+	href="../bower_components/polymer/polymer-element.html"/>
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html"/>
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html"/>
+<link rel = "import" href = "../bower_components/paper-spinner/paper-spinner.html">
+<link rel = "import" href = "../bower_components/paper-spinner/paper-spinner-lite.html">
+
+<dom-module id="show-repos"> 
+<template>
+<style is = "custom-style">
+   .big {
+      --iron-icon-height: 150px;
+      --iron-icon-width: 150px;
+   }
+   .floatybox {
+     display: inline-block;
+     padding: 2px;
+	}
+	.reponame{
+		text-align: center;
+	}
+	.spinnerdiv{
+		padding-top : 50px;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+	
+</style>
+	<!-- <paper-spinner-lite alt="loading repositories" active="{{showSpinner}}" class="orange"></paper-spinner-lite> -->
+	<iron-ajax auto url="https://api.github.com/users/hasanmasud/repos" handle-as="json" on-response="handleResponse"></iron-ajax> 
+		<template is="dom-repeat" items="{{repos}}">
+			<div class="floatybox">
+				<div>
+					<a target="_blank" href="{{item.html_url}}"><iron-icon class="big" src="../imgs/repo.png"></iron-icon></a>
+				</div>
+				<div class="reponame">
+					<span class="">{{item.name}}</span>
+				</div>
+			</div>
+		</template> 
+ </template> <script>
+	// Your new element extends the Polymer.Element base class
+	/**
+     * @customElement
+     * @polymer
+     */
+	class ShowRepos extends Polymer.Element {
+			static get is() {
+				return 'show-repos';
+			}
+	        static get properties() {
+	              return {
+	            	  showSpinner: {
+	                  type: Boolean,
+	                  value: false
+	                }
+	              }
+	            }
+		handleResponse(e) {
+			this.repos = e.detail.response;
+		}
+	}
+	window.customElements.define(ShowRepos.is, ShowRepos);
+</script></dom-module>
+

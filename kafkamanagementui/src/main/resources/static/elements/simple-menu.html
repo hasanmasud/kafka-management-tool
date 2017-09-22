@@ -1,0 +1,41 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-menu-behavior/iron-menu-behavior.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+
+<dom-module id="simple-menu">
+  <template>
+    <style>
+      :host > ::slotted(*) {
+        display: block;
+      }
+
+      :host > ::slotted(.iron-selected) {
+        color: white;
+        background-color: var(--google-blue-500);
+      }
+    </style>
+
+    <slot></slot>
+
+  </template>
+
+</dom-module>
+
+<script>
+
+(function() {
+
+  Polymer({
+
+    is: 'simple-menu',
+
+    behaviors: [
+      Polymer.IronMenuBehavior
+    ]
+
+  });
+
+})();
+
+</script>

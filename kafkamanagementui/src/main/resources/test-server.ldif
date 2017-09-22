@@ -1,0 +1,140 @@
+dn: dc=smartcompute,dc=online
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: smartcompute
+
+dn: ou=groups,dc=smartcompute,dc=online
+objectclass: top
+objectclass: onlineanizationalUnit
+ou: groups
+
+dn: ou=subgroups,ou=groups,dc=smartcompute,dc=online
+objectclass: top
+objectclass: onlineanizationalUnit
+ou: subgroups
+
+dn: ou=people,dc=smartcompute,dc=online
+objectclass: top
+objectclass: onlineanizationalUnit
+ou: people
+
+dn: ou=space cadets,dc=smartcompute,dc=online
+objectclass: top
+objectclass: onlineanizationalUnit
+ou: space cadets
+
+dn: ou=\"quoted people\",dc=smartcompute,dc=online
+objectclass: top
+objectclass: onlineanizationalUnit
+ou: "quoted people"
+
+dn: ou=otherpeople,dc=smartcompute,dc=online
+objectclass: top
+objectclass: onlineanizationalUnit
+ou: otherpeople
+
+dn: uid=ben,ou=people,dc=smartcompute,dc=online
+objectclass: top
+objectclass: person
+objectclass: onlineanizationalPerson
+objectclass: inetonlinePerson
+cn: Ben Alex
+sn: Alex
+uid: ben
+userPassword: {SHA}nFCebWjxfaLbHHG1Qk5UU4trbvQ=
+
+dn: uid=bob,ou=people,dc=smartcompute,dc=online
+objectclass: top
+objectclass: person
+objectclass: onlineanizationalPerson
+objectclass: inetonlinePerson
+cn: Masud Hasan
+sn:Hasan
+uid: masud
+userPassword: masud123
+
+dn: uid=bob,ou=people,dc=smartcompute,dc=online
+objectclass: top
+objectclass: person
+objectclass: onlineanizationalPerson
+objectclass: inetonlinePerson
+cn: Bob Hamilton
+sn: Hamilton
+uid: bob
+userPassword: bobspassword
+
+dn: uid=joe,ou=otherpeople,dc=smartcompute,dc=online
+objectclass: top
+objectclass: person
+objectclass: onlineanizationalPerson
+objectclass: inetonlinePerson
+cn: Joe Smeth
+sn: Smeth
+uid: joe
+userPassword: joespassword
+
+dn: cn=mouse\, jerry,ou=people,dc=smartcompute,dc=online
+objectclass: top
+objectclass: person
+objectclass: onlineanizationalPerson
+objectclass: inetonlinePerson
+cn: Mouse, Jerry
+sn: Mouse
+uid: jerry
+userPassword: jerryspassword
+
+dn: cn=slash/guy,ou=people,dc=smartcompute,dc=online
+objectclass: top
+objectclass: person
+objectclass: onlineanizationalPerson
+objectclass: inetonlinePerson
+cn: slash/guy
+sn: Slash
+uid: slashguy
+userPassword: slashguyspassword
+
+dn: cn=quote\"guy,ou=\"quoted people\",dc=smartcompute,dc=online
+objectclass: top
+objectclass: person
+objectclass: onlineanizationalPerson
+objectclass: inetonlinePerson
+cn: quote\"guy
+sn: Quote
+uid: quoteguy
+userPassword: quoteguyspassword
+
+dn: uid=space cadet,ou=space cadets,dc=smartcompute,dc=online
+objectclass: top
+objectclass: person
+objectclass: onlineanizationalPerson
+objectclass: inetonlinePerson
+cn: Space Cadet
+sn: Cadet
+uid: space cadet
+userPassword: spacecadetspassword
+
+
+
+dn: cn=developers,ou=groups,dc=smartcompute,dc=online
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: developers
+ou: developer
+uniqueMember: uid=ben,ou=people,dc=smartcompute,dc=online
+uniqueMember: uid=bob,ou=people,dc=smartcompute,dc=online
+
+dn: cn=managers,ou=groups,dc=smartcompute,dc=online
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: managers
+ou: manager
+uniqueMember: uid=ben,ou=people,dc=smartcompute,dc=online
+uniqueMember: cn=mouse\, jerry,ou=people,dc=smartcompute,dc=online
+
+dn: cn=submanagers,ou=subgroups,ou=groups,dc=smartcompute,dc=online
+objectclass: top
+objectclass: groupOfUniqueNames
+cn: submanagers
+ou: submanager
+uniqueMember: uid=ben,ou=people,dc=smartcompute,dc=online

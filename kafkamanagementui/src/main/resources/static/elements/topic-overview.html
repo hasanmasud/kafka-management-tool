@@ -1,0 +1,50 @@
+<link rel="import"
+	href="../bower_components/polymer/polymer-element.html"/>
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html"/>
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html"/>
+
+<dom-module id="topic-overview"> 
+<template>
+<style is = "custom-style">
+   .big {
+      --iron-icon-height: 150px;
+      --iron-icon-width: 150px;
+   }
+   .floatybox {
+     display: inline-block;
+     padding: 2px;
+	}
+	.reponame{
+		text-align: center;
+	}
+</style>
+	<div>
+		<iron-ajax auto url="rest/topics" handle-as="json" on-response="handleResponse"></iron-ajax> 
+			<template is="dom-repeat" items="{{topics}}">
+				<div class="floatybox">
+					<div>
+						<a href="#"><iron-icon class="big" src="../imgs/topic.png"></iron-icon></a>
+					</div>
+					<div class="reponame">
+						<span class="">{{item.name}}</span>
+					</div>
+				</div>
+			</template>
+		</div>
+ </template> <script>
+	// Your new element extends the Polymer.Element base class
+	/**
+     * @customElement
+     * @polymer
+     */
+	class TopicOverview extends Polymer.Element {
+		static get is() {
+			return 'topic-overview';
+		}
+		handleResponse(e) {
+			this.topics = e.detail.response;
+		}
+	}
+	window.customElements.define(TopicOverview.is, TopicOverview);
+</script></dom-module>
+

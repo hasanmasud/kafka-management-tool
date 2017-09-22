@@ -1,0 +1,36 @@
+<link rel="import"
+	href="../bower_components/polymer/polymer-element.html"/>
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html"/>
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html"/>
+
+<dom-module id="log-out"> <template>
+<style>
+.submit {
+	cursor: pointer;
+}
+</style>
+<iron-ajax auto url="/rest/user" handle-as="json" on-response="handleResponse"></iron-ajax> 
+<form method="post" action="{{url}}">
+  <div class="form-group">
+		<button name="submit" type="submit" title="logout">
+			<iron-icon class="submit" icon="icons:exit-to-app"></iron-icon>
+		</button>
+  </div>
+</form>
+</template> <script>
+	// Your new element extends the Polymer.Element base class
+	class LogOut extends Polymer.Element {
+		static get is() {
+			return 'log-out';
+		}
+		static get properties() {
+			return {
+				url : {
+					type : String
+				}
+			}
+		}
+	}
+	//Now, register your new custom element so the browser can use it
+	customElements.define(LogOut.is, LogOut);
+</script> </dom-module>

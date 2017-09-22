@@ -1,0 +1,39 @@
+<link rel="import"
+	href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html"/>
+<dom-module id="greet-user"> 
+<template>
+	<style>
+		#username{
+			padding-left: 2px;
+			padding-right: 2px;
+			text-align: center;
+			font-weight: normal;
+		}
+	</style>
+	<iron-ajax auto url="/rest/user" handle-as="json" on-response="handleResponse"></iron-ajax>
+	<div id="username"><label>{{user.userName}}</label></dic>
+</template> 
+<script>
+	// Your new element extends the Polymer.Element base class
+	class GreetUser extends Polymer.Element {
+		static get is() {
+			return 'greet-user';
+		}
+		static get properties() {
+			return {
+				greeting : {
+					type : String,
+					value : "Hello!"
+				}
+			}
+		}
+		handleResponse(e) {
+			this.user = e.detail.response;
+			console.log(this.user);
+		}
+	}
+	//Now, register your new custom element so the browser can use it
+	customElements.define(GreetUser.is, GreetUser);
+</script>
+</dom-module>
